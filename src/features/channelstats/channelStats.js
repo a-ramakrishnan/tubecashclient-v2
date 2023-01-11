@@ -30,7 +30,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "http://localhost:3501/channelstats/performance",
+      url: "https://tubecash-apiv2.onrender.com/channelstats/performance",
       headers: {
         "Content-Type": "application/json",
       },
@@ -51,7 +51,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "http://localhost:3501/channelstats/videostats",
+      url: "https://tubecash-apiv2.onrender.com/channelstats/videostats",
       headers: {
         "Content-Type": "application/json",
       },
@@ -72,7 +72,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "http://localhost:3501/channelstats/fullstats",
+      url: "https://tubecash-apiv2.onrender.com/channelstats/fullstats",
       headers: {
         "Content-Type": "application/json",
       },
