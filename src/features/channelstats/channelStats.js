@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 const ChannelStats = () => {
   const { atoken, rtoken } = useParams();
 
-  console.log(atoken, rtoken);
+  //console.log(atoken, rtoken);
   const [refreshjwt, setRefreshJwt] = useState("");
   const [accessjwt, setAccessJwt] = useState("");
 
