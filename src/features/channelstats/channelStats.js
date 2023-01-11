@@ -1,25 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const ChannelStats = () => {
+  const { atoken, rtoken } = useParams();
+
+  console.log(atoken, rtoken);
   const [refreshjwt, setRefreshJwt] = useState("");
   const [accessjwt, setAccessJwt] = useState("");
 
-  function getCookie() {
-    let cookie = {};
-    document.cookie.split(";").forEach((el) => {
-      let [k, v] = el.split("=");
-      cookie[k.trim()] = v;
-    });
-    console.log(cookie);
-    return cookie;
-  }
-
   useEffect(() => {
-    const availableCookies = getCookie();
-    setAccessJwt(availableCookies.accessjwt);
-    setRefreshJwt(availableCookies.refreshjwt);
-  }, []);
+    setRefreshJwt(rtoken);
+    setAccessJwt(atoken);
+  }, [atoken, rtoken]);
   const getPerformanceStatsFromYoutube = async () => {
     console.log(accessjwt, refreshjwt);
 
@@ -30,7 +23,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "https://tubecash-apiv2.onrender.com/channelstats/performance",
+      url: `${process.env.REACT_APP_GOOGLE_SERVER_ENDPOINT}/channelstats/performance`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,8 +35,6 @@ const ChannelStats = () => {
   };
 
   const getVideoStatsFromYoutube = async () => {
-    console.log(accessjwt, refreshjwt);
-
     const postData = {
       access: accessjwt,
       refresh: refreshjwt,
@@ -51,7 +42,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "https://tubecash-apiv2.onrender.com/channelstats/videostats",
+      url: `${process.env.REACT_APP_GOOGLE_SERVER_ENDPOINT}/channelstats/videostats`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -63,8 +54,6 @@ const ChannelStats = () => {
   };
 
   const getFullStatsFromYoutube = async () => {
-    console.log(accessjwt, refreshjwt);
-
     const postData = {
       access: accessjwt,
       refresh: refreshjwt,
@@ -72,7 +61,7 @@ const ChannelStats = () => {
 
     const config = {
       method: "post",
-      url: "https://tubecash-apiv2.onrender.com/channelstats/fullstats",
+      url: `${process.env.REACT_APP_GOOGLE_SERVER_ENDPOINT}/channelstats/fullstats`,
       headers: {
         "Content-Type": "application/json",
       },

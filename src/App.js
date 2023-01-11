@@ -20,11 +20,12 @@ function App() {
         <Route element={<Prefetch />}>
           <Route path="dash" element={<DashLayout />}>
             <Route index element={<Welcome />} />
+
             <Route path="addchannel">
               <Route index element={<AddChannel />} />
             </Route>
             <Route path="channelstats">
-              <Route index element={<ChannelStats />} />
+              <Route path=":atoken/:rtoken" element={<ChannelStats />} />
             </Route>
             <Route path="users">
               <Route index element={<UsersList />} />
