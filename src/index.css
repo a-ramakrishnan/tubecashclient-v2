@@ -33,6 +33,11 @@
   margin-bottom: 0.5em;
 }
 
+.errmsg a:any-link{
+  color: var(--ERROR);
+  text-decoration: underline;
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -207,6 +212,14 @@ tr {
   color: var(--TABLE-COLOR);
   gap: 0.1em;
 }
+.table--channels {
+  font-size: 0.75rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 1fr ;
+  color: var(--TABLE-COLOR);
+  gap: 0.1em;
+}
 
 .table__button {
   padding: 0.25em;
@@ -362,9 +375,6 @@ tr {
     padding: 1em;
   }
 
-  .table {
-    font-size: 1.5rem;
-  }
 
   .table--notes {
     grid-template-columns: repeat(3, 1fr) 2fr repeat(2, 1fr);
