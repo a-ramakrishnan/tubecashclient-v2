@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials } from "../../features/auth/authSlice";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3501",
+  baseUrl: process.env.REACT_APP_BASEURL,
   // baseUrl: "https://tubecash-apiv2.onrender.com",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
