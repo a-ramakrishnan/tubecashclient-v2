@@ -62,6 +62,25 @@ const RefreshChannel = () => {
     });
   };
 
+  const dailyVideoRevenueStatistics = async () => {
+    const postData = {
+      channelID: channelId,
+    };
+
+    const config = {
+      method: "post",
+      url: `${process.env.REACT_APP_GOOGLE_SERVER_ENDPOINT}/channelinfo/dailyvideostats`,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${state.auth.token}`,
+      },
+      data: JSON.stringify(postData),
+    };
+    await axios(config).then((response) => {
+      console.log("Response is", response);
+    });
+  };
+
   const getPerformanceStatsFromYoutube = async () => {
     const postData = {
       channelID: channelId,
@@ -129,6 +148,15 @@ const RefreshChannel = () => {
           onClick={updateVideoRevenueStatistics}
         >
           Get Video Revenue Stats
+        </button>
+        <h6>This will update the video level revenue information</h6>
+      </div>
+      <div>
+        <button
+          className="space__bottom button__possize"
+          onClick={dailyVideoRevenueStatistics}
+        >
+          Get Daily Video Revenue Stats
         </button>
         <h6>This will update the video level revenue information</h6>
       </div>

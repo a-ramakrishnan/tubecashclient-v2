@@ -35,6 +35,7 @@ const ChannelInfo = () => {
     content = (
       <>
         <h1> Channel Information </h1>
+
         <table className="table table--channels">
           <thead className="table__thead">
             <tr>
@@ -61,6 +62,7 @@ const ChannelInfo = () => {
               </th>
             </tr>
           </thead>
+
           <tbody>{tableContent}</tbody>
         </table>
       </>
